@@ -1,1 +1,1 @@
-# snkke_game_color
+# snake_game_color
