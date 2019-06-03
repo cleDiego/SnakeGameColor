@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Snake Game Canvas - Estruturas</title>
+  <meta charset="utf-8" />
+  <link rel="stylesheet" href="style.css">
+  <script src="js/jquery.js" charset="utf-8"></script>
+</head>
+<body>
+  <div id="gameOver">
+    <div class="msg">
+      <h2 class="title">
+        S<span style="color: #66e559">NA</span><span style="color: #51dbe2">KE</span>
+        <span style="color: #e25151">POW</span><span style="color: #e547cb">ER</span>
+        <span style="color: #e5df46">GA</span>ME</h2>
+      <p id="fimJogo"></p>
+      <p>
+        <a href="#" data-icon="➤" class="button green shield glossy xs start">Iniciar</a>
+        <a href="#" data-icon="↺" class="button orange shield glossy xs resume">Continuar</a>
+      </p>
+      <p>
+        <select id="dificuldade">
+          <option selected value="50">Dificuldade: Normal</option>
+          <option value="80">Dificuldade: Fácil</option>
+          <option value="20">Dificuldade: Dificil</option>
+        </select>
+        <select id="qtdComida">
+          <option selected value="20">Comida: Normal</option>
+          <option value="35">Comida: Pouca</option>
+          <option value="10">Comida: Muita</option>
+          <option value="1">Comida: Muita Fome!</option>
+        </select>
+      </p>
+      <p>
+        <select id="bg">
+          <option value="img/bg1.jpg">Fundo: 1</option>
+          <option selected value="img/bg2.jpg">Fundo: 2</option>
+          <option selected value="img/bg3.jpg">Fundo: 3</option>
+          <option value="img/avengers.jpg">Fundo: Avengers</option>
+          <option value="img/got.jpg">Fundo: GOT</option>
+          <option value="img/lol.jpg">Fundo: LOL</option>
+          <option value="img/gta.jpg">Fundo: GTA</option>
+          <option value="img/tomb_raider.jpg">Fundo: Tomb Raider</option>
+        </select>
+        <select id="tamRect">
+          <option selected value="10">Tamanho: 10px</option>
+          <option value="20">Tamanho: 20px</option>
+          <option value="15">Tamanho: 15px</option>
+          <option value="5">Tamanho: 5px</option>
+        </select>
+      </p>
+      <p>
+        <span class="audioTitle" >Musica e Efeitos Sonoros:</p>
+        <div class="audioControl">
+            <input type="checkbox" id="checkboxAudio" />
+            <label for="checkboxAudio"></label>
+        </div>
+      </p>
+      <p class="help">
+        <b><i>ENTER</i></b>=> Inicia/Reinicia
+        <br><b><i>ESQ</i></b>=> Pausa/Resume
+      </p>
+      <p class="copy">
+        <br>Desenvolvido por: Cleverson Diego Vieira
+        <br>Estrutura de Dados - Filas
+        <br>Prof Dr Luiz Antônio Pereira Neves
+        <br><img src="img/ufpr.png" width="70" />
+      </p>
+      <audio id="bgSound" loop  >
+        <source src="audio/bg.mp3">
+      </audio>
+      <audio id="collisionSoundWalls">
+        <source src="audio/colisionWalls.mp3">
+      </audio>
+      <audio id="eatFood">
+        <source src="audio/eatCoin.mp3">
+      </audio>
+      <audio id="eatFoodError">
+        <source src="audio/eatError.mp3">
+      </audio>
+      <audio id="powerUP">
+        <source src="audio/powerUP.mp3">
+      </audio>
+      <audio id="powerDown">
+        <source src="audio/powerDown.mp3">
+      </audio>
+    </div>
+  </div>
+  <p class="trocaPontos"></p>
+  <canvas id="snake"></canvas>
+
+
+  <script src="js/fila.js"></script>
+  <script src="js/config.js"></script>
+  <script src="js/control.js"></script>
+  <script src="js/snake.js"></script>
+</body>
+</html>

@@ -1,0 +1,377 @@
+html, body {
+  width: 100%;
+  height: 100%;
+  padding: 0;
+  margin: 0;
+  color: #333;
+  overflow: hidden;
+  background-color: #fff;
+  overflow: hidden;
+  font-family: 'ChunkFiveRegular';
+}
+p, h2 {
+  text-align: center;
+  margin: 15px;
+}
+.title {
+  color: #eee;
+	text-shadow: 0px 1px 0px #999, 0px 2px 0px #888, 0px 3px 0px #777, 0px 4px 0px #666, 0px 5px 0px #555, 0px 6px 0px #444, 0px 7px 0px #333, 0px 8px 7px #001135;
+	font-size: 40px;
+}
+canvas#snake {
+  width: 100%;
+  height: 100%;
+  display: block;
+  margin: 0 auto;
+  border: 1px solid #333;
+  background-image: url("img/bg1.jpg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  overflow: hidden;
+}
+#gameOver{
+  width: 100%;
+  height: 100%;
+  color: #fff;
+  position: absolute;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+#gameOver .msg {
+  width: 400px;
+  margin: 6% auto;
+  background-image: url('img/worm.png');
+  background-size:contain;
+  background-repeat: no-repeat;
+  background-color: rgba(255, 255, 255, 0.7);
+  background-blend-mode: lighten;
+  padding: 5px;
+  color: #333;
+  border-top: 4px solid #769ee2;
+  box-shadow: 0px 0px 9px 0px rgba(0,0,0,0.5);
+  transition: 0.4s;
+  border-radius: 20px;
+}
+#gameOver .msg:hover {
+  margin: 5% auto;
+  border-top: 6px solid #3d7be5;
+  transition: 0.4s;
+  padding: 20px;
+}
+select{
+  padding: 3px 10px 3px 10px;
+  border-radius: 3px;
+  outline:inherit;
+  cursor:context-menu;
+}
+button{
+  padding: 8px 35px 8px 35px;
+  border-radius: 10px;
+  border: 2px solid #bbb;
+  box-shadow: -2px 1px 3px -1px rgba(0,0,0,0.5);
+  cursor: pointer;
+  font-size: 14px;
+
+}
+button.start {
+  background: #ddd;
+  border: 2px solid #0c8724;
+  transition: 0.4s;
+  color: #0c8724;
+}
+button.resume {
+  background: #ddd;
+  border: 2px solid #ea8615;
+  transition: 0.4s;
+  color: #824c10;
+  display: none;
+}
+button.start:hover {
+  background: #0c8724;
+  transition: 0.4s;
+  color: #fff;
+}
+button.resume:hover {
+  background: #ea8615;
+  transition: 0.4s;
+  color: #fff;
+}
+button:hover {
+  background: #bbb;
+  transition: 0.4s;
+}
+.copy {
+  color: #666;
+  font-size: 12px;
+  padding: 0;
+}
+.help {
+  font-size: 12px;
+}
+.trocaPontos {
+  position: absolute;
+  color: #fff;
+  opacity: 0.2;
+  bottom: 10px;
+  font-size: 60px;
+  right: 20px;
+  text-shadow: 0 -1px 4px #FFF, 0 -2px 10px #ff0, 0 -10px 15px #ff8000, 0 -18px 20px #F00, 3px 4px 2px rgba(206,89,55,0.63);
+  transition: 0.4s;
+}
+.trocaPontos:hover {
+  opacity: 1;
+  transition: 0.4s;
+}
+.trocaPontos2 {
+  opacity: 0.7;
+  transition: 0.4s;
+}
+
+/** BUTTONS **/
+
+
+.button {
+  /* text */
+  text-decoration: 		none;
+  font: 					24px/1em 'Droid Sans', sans-serif;
+  font-weight: 			bold;
+  text-shadow: 			rgba(255,255,255,.5) 0 1px 0;
+  -webkit-user-select: 	none;
+  -moz-user-select: 		none;
+  user-select: 			none;
+
+
+  /* layout */
+  padding: 				.5em .6em .4em .6em;
+  margin: 				.5em;
+  display: 				inline-block;
+  position: 				relative;
+
+  -webkit-border-radius: 	8px;
+  -moz-border-radius: 	8px;
+  border-radius: 	8px;
+
+  /* effects */
+  border-top: 		1px solid rgba(255,255,255,0.8);
+  border-bottom: 		1px solid rgba(0,0,0,0.1);
+
+  background-image: 	-webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(https://lh4.googleusercontent.com/-Qs9-Ohgo6sk/UY11O1WoMQI/AAAAAAAACME/nUID7awcMow/s50-no/noise.png);
+  background-image: 	-moz-radial-gradient(top, ellipse cover, rgba(255,255,255,0.7) 0%, rgba(255,255,255,0) 100%), url(https://lh4.googleusercontent.com/-Qs9-Ohgo6sk/UY11O1WoMQI/AAAAAAAACME/nUID7awcMow/s50-no/noise.png);
+  background-image: 	gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0.7) )), url(https://lh4.googleusercontent.com/-Qs9-Ohgo6sk/UY11O1WoMQI/AAAAAAAACME/nUID7awcMow/s50-no/noise.png);
+
+  -webkit-transition: background .2s ease-in-out;
+  -moz-transition: 	background .2s ease-in-out;
+  transition: 		background .2s ease-in-out;
+
+  /* color */
+  color: 				hsl(0, 0%, 40%) !important;
+  background-color: 	hsl(0, 0%, 90%);
+
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+  hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+  rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow: 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+  hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+  rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:		 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+  hsl(0, 0%, 60%) 0 .1em 3px, hsl(0, 0%, 45%) 0 .3em 1px, /* color border */
+  rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+
+/* -------------- button (tag) -------------- */
+button.button {
+  border-left: none;
+  border-right: none;
+}
+button.button:hover {
+  cursor: pointer;
+}
+
+
+/* -------------- icon -------------- */
+.button:before {
+  font: 			1.2em/0 'Pictos', sans-serif;
+  content: 		attr(data-icon); /* gets the icon value from the custom data attribute and puts it infront of the button label */
+  margin-right: 	0.4em;
+}
+
+/* -------------- colours -------------- */
+.button.orange {
+  display: none;
+  color: 				hsl(39, 100%, 30%) !important;
+  background-color: 	hsl(39, 100%, 50%);
+
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+  hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
+  rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow: 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+  hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
+  rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:		 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+  hsl(39, 100%, 40%) 0 .1em 3px, hsl(39, 100%, 30%) 0 .3em 1px, /* color border */
+  rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.orange:hover { 	background-color: hsl(39, 100%, 65%); }
+
+
+.button.green {
+  color: 				hsl(88, 70%, 30%) !important;
+  background-color: 	hsl(88, 70%, 60%);
+  -webkit-box-shadow: inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+  hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+  rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  -moz-box-shadow: 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+  hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+  rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+  box-shadow:		 	inset rgba(255,254,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.15) 0 -0.1em .3em, /* inner shadow */
+  hsl(88, 70%, 40%) 0 .1em 3px, hsl(88, 70%, 30%) 0 .3em 1px, /* color border */
+  rgba(0,0,0,0.2) 0 .5em 5px; /* drop shadow */
+}
+.button.green:hover { 	background-color: hsl(88, 70%, 75%); }
+
+
+/* -------------- States -------------- */
+.button:hover {
+  background-color: 	hsl(0, 0%, 83%);
+}
+
+.button:active {
+  background-image: 	-webkit-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(noise.png);
+  background-image: 	-moz-gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(noise.png);
+  background-image: 	gradient(radial, 50% 0, 100, 50% 0, 0, from( rgba(255,255,255,0) ), to( rgba(255,255,255,0) )), url(noise.png);
+
+  -webkit-box-shadow: inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */
+  rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+  rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+  -moz-box-shadow: 	inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */
+  rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+  rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+  box-shadow: 		inset rgba(255,255,255,0.6) 0 0.3em .3em, inset rgba(0,0,0,0.2) 0 -0.1em .3em, /* inner shadow */
+  rgba(0,0,0,0.4) 0 .1em 1px, /* border */
+  rgba(0,0,0,0.2) 0 .2em 6px; /* drop shadow */
+
+  -webkit-transform: 	translateY(.2em);
+  -moz-transform: 	translateY(.2em);
+  transform: 			translateY(.2em);
+}
+
+.button:focus {
+  outline: none;
+  color: rgba(254,255,255,0.9) !important;
+  text-shadow: rgba(0,0,0,0.2) 0 1px 2px;
+}
+
+/* -------------- Fonts -------------- */
+.serif {
+  font-family: 'Lobster', serif;
+  font-weight: 			normal;
+}
+
+/* -------------- Sizes -------------- */
+
+.xs { font-size: 18px; }
+.xl { font-size: 32px; }
+
+
+/* -------------- Materials -------------- */
+.button.glossy:after, .button.glass:after {
+  content: 	"";
+  position: 	absolute;
+  width: 		90%;
+  height: 	60%;
+  top: 		0;
+  left: 		5%;
+
+  -webkit-border-radius: 	.5em .5em 1em 1em / .5em .5em 2em 2em;
+  -moz-border-radius: 	.5em .5em 1em 1em / .5em .5em 2em 2em;
+  border-radius: 			.5em .5em 1em 1em / .5em .5em 2em 2em;
+
+  background-image: 		-webkit-gradient(linear, 0% 0, 100% 0, from( rgba(255,255,255,.55) ), to( rgba(255,255,255,.5) ),
+  color-stop(.5, rgba(255,255,255,0)), color-stop(.8, rgba(255,255,255,0)) );
+  background-image: 		-moz-linear-gradient(left, rgba(255,255,255,.55), rgba(255,255,255,0) 50%, rgba(255,255,255,0) 80%, rgba(255,255,255,.5) );
+  background-image: 		gradient(linear, 0% 0, 100% 0, from( rgba(255,255,255,.55) ), to( rgba(255,255,255,.5) ),
+  color-stop(.5, rgba(255,255,255,0)), color-stop(.8, rgba(255,255,255,0)) );
+}
+.button.glossy:active:after,
+.button.glass:active:after,
+.button.disabled:after,
+.button[disabled]:after
+{ opacity: .6; }
+
+.button.icon.glossy:after,
+.button.icon.glass:after { height: 75% ; }
+
+/* -------------- Glass + Transparent -------------- */
+.button.glass {
+  text-shadow: rgba(255,255,255,.5) 0 -1px 0, rgba(0,0,0,0.18) 0 .18em .15em;
+}
+.button.glass:active {
+  text-shadow: rgba(255,255,255,.3) 0 1px 0, rgba(0,0,0,0.15) 0 .18em .15em;
+}
+
+/* shield */
+.shield, .shield.glossy:after, .shield.glass:after {
+  -webkit-border-radius: 	.4em .4em 2em 2em / .4em .4em 3em 3em;
+  -moz-border-radius: 	.4em .4em 2em 2em / .4em .4em 3em 3em;
+  border-radius: 			.4em .4em 2em 2em / .4em .4em 3em 3em;
+}
+.shield {
+  padding-left: 	.8em;
+  padding-right: 	.8em;
+}
+.shield.icon {
+  padding-left: 	.6em;
+  padding-right: 	.6em;
+}
+
+/*** CHECKBOX CUSTOM ***/
+.audioControl {
+    width: 60px;
+    height: 20px;
+    background: #ddd;
+    margin: 0 auto;
+    border-radius: 50px;
+    position: relative;
+    border: 1px solid #aaa;
+}
+span.audioTitle {
+
+}
+.audioControl:before {
+    content: 'ON';
+    position: absolute;
+    top: 2px;
+    left: 4px;
+    height: 5px;
+    color: hsl(88, 70%, 30%);
+    font-size: 14px;
+}
+.audioControl:after {
+    content: 'OFF';
+    position: absolute;
+    top: 2px;
+    left: 34px;
+    height: 2px;
+    color: #333;
+    font-size: 12px;
+}
+.audioControl label {
+    display: block;
+    width: 24px;
+    height: 16px;
+    border-radius: 50px;
+    transition: all .5s ease;
+    cursor: pointer;
+    position: absolute;
+    top: 2px;
+    z-index: 1;
+    left: 4px;
+    background: #333;
+}
+.audioControl input[type=checkbox]:checked + label {
+    left: 34px;
+    background: hsl(88, 70%, 30%);
+}
+#checkboxAudio {
+  display:none
+}
