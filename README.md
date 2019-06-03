@@ -1,1 +1,1 @@
-# snake_game_color
+# Snake Game Color
