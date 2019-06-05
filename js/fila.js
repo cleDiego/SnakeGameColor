@@ -14,7 +14,7 @@ function Fila(){
       this.size++;
       return obj;
     }else{
-      console.log("A fila está cheia!");
+      return false;
     }
   }
 
@@ -41,18 +41,6 @@ function Fila(){
     }
   }
 
-  this.getElem2 = function(i, j){
-    if(!this.empty()){
-      if(!i && !j){
-        return this.v[this.begin][1].getElem();
-      }else{
-        return this.v[this.begin+i][1].getElem(j);
-      }
-    }else{
-      console.log("A fila esta vazia");
-    }
-  }
-
   this.prox = function(i){
     if(!this.empty()){
       if(i < this.size){
@@ -69,7 +57,6 @@ function Fila(){
     while(!this.empty){
       this.removeFila();
     }
-    console.log("Fila vazia!");
   }
 
   this.empty = function(){
@@ -88,30 +75,6 @@ function Fila(){
     }
   }
 
-  this.removeFilaPop = function(){
-    if(this.size > 0){
-      let obj = this.v[v.length-1];
-      this.v.splice(v.length-1,1);
-      return obj;
-    }else{
-      console.log("Não há elementos na fila.");
-    }
-  }
-
-  this.removeCorrige = function(index){
-    if(this.size > 0){
-      let obj = new Fila;
-      while(!this.empty){
-        if(this.getElem())
-        obj.insere(this.removeFilaPop);
-      }
-      return obj;
-    }else{
-      return false;
-    }
-
-  }
-
   this.first = function(){
     if(this.size > 0){
       return this.v[this.begin];
@@ -124,7 +87,7 @@ function Fila(){
     if(this.size > 0){
       return this.v[this.size-1];
     }else{
-      console.log("Não há elementos na fila.");
+      return false;
     }
   }
 }
