@@ -37,18 +37,6 @@ $(".start").click(function(){
   $("#gameOver").fadeOut("slow");
   $("#fimJogo").html("JOGANDO");
   $(".resume").fadeIn("medium");
-  pause = false;
-  vgameOver = false;
-  dir = "d";
-  timeFood = 0;
-  speed = Number($("#dificuldade").val());
-  tamRect = Number($("#tamRect").val()),
-  snake = new Fila;
-  foods = new Array();
-  snake.insere({c: colorRandom(), x: 120, y: 240});
-  snake.insere({c: colorRandom(), x: 0, y: 0});
-  snake.insere({c: colorRandom(), x: 0, y: 0});
-  clearInterval(interval);
   start();
 });
 
@@ -148,4 +136,23 @@ Apenas atualiza o placar final em gamePause e gameOver
 *******/
 function placar(){
   $(".trocaPontos").html(snake.size*10);
+}
+
+/******* redefineVars()
+Variaveis que precisam ser redefinidas ao reiniciar
+*******/
+function redefineVars(){
+  pause = false;
+  vgameOver = false;
+  dir = "d";
+  timeFood = 0;
+  speed = Number($("#dificuldade").val());
+  tamRect = Number($("#tamRect").val()),
+  snake = new Fila;
+  foods = new Array();
+  powers = new Array();
+  snake.insert({c: colorRandom(), x: 120, y: 240}); //posição inicial
+  snake.insert({c: colorRandom(), x: 0, y: 0});
+  snake.insert({c: colorRandom(), x: 0, y: 0});
+  clearInterval(interval);
 }
