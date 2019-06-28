@@ -199,26 +199,22 @@ Testa as cores e caso a cor da comida seja igual a cor da cabeça da cobra remov
 Caso contrário um novo elemento é adicionado a snake neste caso no final
 ********/
 function crashFood(pos, elem){
-  foods.splice(Number(pos), 1);
+  foods.splice(Number(pos), 1); //remove a comida do array
   if(elem.c == snake.v[snake.begin].c){
     //perde a cabeça
     if(sounds){
       eatFoodError.load();
       eatFoodError.play();
     }
-    snake.removeFila();
+    snake.remove(); //remove o elemento a mais tempo da fila
   }else{
     //adicionar
     if(sounds){
       eatFood.load();
       eatFood.play();
     }
-    snake.insere({c: elem.c, x: 0, y: 0});
+    snake.insert({c: elem.c, x: 0, y: 0}); //insere um novo elemento ao fim da fila
   }
-  $(".trocaPontos").addClass("trocaPontos2");
-  setTimeout(function(){
-    $(".trocaPontos").removeClass("trocaPontos2");
-  }, 400);
 }
 
 function crashPower(pos, elem){
@@ -228,7 +224,7 @@ function crashPower(pos, elem){
     powerUP.play();
   }
   for (let [k, v] of Object.entries(foods)) {
-    snake.insere({c: v.c, x: snake.v[snake.size-1].x, y: snake.v[snake.size-1].y});
+    snake.insert({c: v.c, x: snake.v[snake.size-1].x, y: snake.v[snake.size-1].y});
   }
   foods = new Array();
 }
