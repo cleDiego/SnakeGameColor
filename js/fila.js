@@ -7,7 +7,7 @@ function Fila(){
   this.size = 0;
   this.begin = 0;
 
-  this.insere = function(obj){
+  this.insert = function(obj){
     if(!this.full()){
       let pos = (this.begin + this.size) % maxSize;
       this.v[pos] = obj;
@@ -18,7 +18,7 @@ function Fila(){
     }
   }
 
-  this.removeFila = function(){
+  this.remove = function(){
     if(!this.empty()){
       let obj = this.v[this.begin];
       this.begin++;
