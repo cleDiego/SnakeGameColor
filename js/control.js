@@ -21,8 +21,8 @@ $(window).keydown(function(e){
     case 39: if(dir != "e" && dir != "d" && !drawing){dir = "d";} break;
     case 27: gamePause(); e.preventDefault(); break; //esc
     case 13: $(".start").click(); e.preventDefault(); break; //enter
-    case 82: snake.removeFila(); break;
-    case 65: snake.insere({c: colorRandom(), x: 0, y: 0}); break;
+    case 82: snake.remove(); break;
+    case 65: snake.insert({c: colorRandom(), x: 0, y: 0}); break;
   }
 });
 
@@ -37,6 +37,7 @@ $(".start").click(function(){
   $("#gameOver").fadeOut("slow");
   $("#fimJogo").html("JOGANDO");
   $(".resume").fadeIn("medium");
+  redefineVars(); //redefine as variaveis basicas do jogo
   start();
 });
 
@@ -131,8 +132,8 @@ function gameOver(){
   $(".resume").hide();
 }
 
-/******* keydown
-Apenas atualiza o placar final em gamePause e gameOver
+/******* placar()
+Apenas atualiza o placar visivel do usuario
 *******/
 function placar(){
   $(".trocaPontos").html(snake.size*10);
