@@ -1,2 +1,2 @@
 # Snake Game Color
-https://clediego.github.io/snake_game_color/game.html
+https://clediego.github.io/SnakeGameColor/game.html
